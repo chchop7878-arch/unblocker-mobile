@@ -29,6 +29,9 @@ jobs:
           flutter --disable-analytics
           flutter config --no-analytics
 
+      - name: Generate Android Platform Files
+        run: flutter create . --platforms=android --org com.example
+
       - name: Get Dependencies
         env:
           CI: "true"
