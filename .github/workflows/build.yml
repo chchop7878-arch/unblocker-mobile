@@ -30,7 +30,7 @@ jobs:
           flutter config --no-analytics
 
       - name: Generate Android Platform Files
-        run: flutter create . --platforms=android --org com.example
+        run: flutter create . --platforms=android --org com.example --project-name unblocker_mobile
 
       - name: Get Dependencies
         env:
