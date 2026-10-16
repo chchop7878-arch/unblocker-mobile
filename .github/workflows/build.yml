@@ -24,13 +24,19 @@ jobs:
           channel: 'stable'
           flutter-version: '3.16.5'
 
-      - name: Disable Analytics
-        run: flutter --disable-analytics
+      - name: Configure Flutter Non-Interactive
+        run: |
+          flutter --disable-analytics
+          flutter config --no-analytics
 
       - name: Get Dependencies
+        env:
+          CI: "true"
         run: flutter pub get
 
       - name: Build APK (Release)
+        env:
+          CI: "true"
         run: flutter build apk --release
 
       - name: Upload APK Artifact
